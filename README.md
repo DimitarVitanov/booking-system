@@ -29,7 +29,7 @@ Users can create events, book seats, manage booking statuses, and track all chan
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/DimitarVitanov/booking-system.git
 
 
 # Install PHP dependencies
