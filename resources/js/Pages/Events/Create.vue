@@ -41,7 +41,7 @@ function submit() {
                         v-model="form.name"
                         type="text"
                         class="form-input"
-                        placeholder="e.g. Laravel Meetup 2025"
+                        placeholder="e.g. Laravel Meetup 2026"
                     />
                     <p v-if="form.errors.name" class="mt-1.5 text-xs text-red-500 font-medium">{{ form.errors.name }}</p>
                 </div>
