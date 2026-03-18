@@ -1,5 +1,7 @@
 # Event Booking System
 
+🌐 **Live Demo:** https://booking-demo.dev
+
 A full-stack event booking application built with **Laravel 12**, **Inertia.js**, **Vue 3**, and **Tailwind CSS**.
 
 Users can create events, book seats, manage booking statuses, and track all changes through an activity timeline.
@@ -279,6 +281,14 @@ resources/js/
 - The `description` field supports HTML content via the TipTap rich text editor
 
 ---
+
+## Deployment
+The application is deployed on a DigitalOcean droplet using Nginx and PHP-FPM.
+
+- Domain: https://booking-demo.dev
+- Server: Ubuntu (Nginx + PHP 8.3)
+- Database: MySQL
+- SSL: Let's Encrypt (Certbot)
 
 ## Production Improvements
 
