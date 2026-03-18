@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Booking;
 use App\Models\Event;
+use Illuminate\Support\Facades\DB;
 
 class BookingService
 {
@@ -19,11 +20,15 @@ class BookingService
 
     public function createBooking(Event $event, array $data): Booking
     {
-        if($data['seats_booked'] > $event->availableSeats()) {
-            throw new \Exception('Not enough seats available');
-        }
+        return DB::transaction(function () use ($event, $data) {
+            $event = Event::lockForUpdate()->findOrFail($event->id);
 
-        return $event->bookings()->create($data);
+            if ($data['seats_booked'] > $event->availableSeats()) {
+                throw new \Exception('Not enough seats available');
+            }
+
+            return $event->bookings()->create($data);
+        });
     }
 
     public function updateStatus(Booking $booking, string $status): Booking
