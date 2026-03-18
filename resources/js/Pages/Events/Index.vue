@@ -8,10 +8,12 @@ const props = defineProps({
 const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function formatDate(dateStr) {
-    const [date, time] = dateStr.includes('T') ? dateStr.split('T') : dateStr.split(' ');
-    const [y, m, d] = date.split('-');
-    const hm = time ? time.substring(0, 5) : '';
-    return `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}, ${hm}`;
+    const dt = new Date(dateStr);
+    const d = dt.getDate();
+    const m = dt.getMonth();
+    const y = dt.getFullYear();
+    const hm = `${String(dt.getHours()).padStart(2, '0')}:${String(dt.getMinutes()).padStart(2, '0')}`;
+    return `${d} ${months[m]} ${y}, ${hm}`;
 }
 
 function progressColor(pct) {
