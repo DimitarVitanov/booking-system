@@ -117,7 +117,7 @@ function handleDelete() {
             </div>
             <button
                 @click="handleDelete"
-                class="shrink-0 text-xs font-medium text-red-400 hover:text-white hover:bg-red-500 border border-red-200 hover:border-red-500 rounded-xl px-3 py-2 transition-all"
+                class="cursor-pointer shrink-0 text-xs font-medium text-red-400 hover:text-white hover:bg-red-500 border border-red-200 hover:border-red-500 rounded-xl px-3 py-2 transition-all"
             >
                 Delete
             </button>
