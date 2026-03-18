@@ -348,6 +348,10 @@ Rather than simply reserving a number of seats, a seat assignment system would a
 
 Pending bookings should have a time-based expiration policy. For example, if a booking is not confirmed within 30 minutes, it would automatically be cancelled and the reserved seats released back into the available pool. This prevents capacity from being indefinitely locked by incomplete bookings and ensures fair access for other attendees. This could be implemented using a Laravel scheduled command or a queued job that periodically checks for expired pending bookings.
 
+### Past Date Validation
+
+Currently, events can be created with past dates since the spec only requires `end_date` to be after `start_date`. In production, the `start_date` should be validated to be in the future (e.g., `after:now`) to prevent creating events that have already passed. This would ensure only upcoming events are listed and bookable.
+
 ### Data Export
 
 Providing export functionality (CSV or PDF) allows event organizers to download booking lists and attendee information. This feature supports operational needs such as attendance tracking, reporting, and post-event analysis.
